@@ -76,7 +76,7 @@ jobs:
               git pull origin ${{ github.ref_name }}
             fi
 
-            # 3. Installer les dépendances et build
+            # 3. Installer les dépendances et build test
             echo "📦 Installation des dépendances et compilation..."
             npm install
             npm run build
