@@ -62,7 +62,7 @@ jobs:
             sudo mkdir -p $DEPLOY_DIR
             sudo chown -R $USER:$USER $DEPLOY_DIR
 
-            # 2. Cloner le dépôt si nécessaire, ou récupérer les dernières modifications
+            # 2. Cloner le dépôt si nécessaire, ou récupérer les dernières modifications test
             if [ ! -d "$DEPLOY_DIR/.git" ]; then
               echo "📦 Premier déploiement: clonage du repo..."
               git clone https://github.com/${{ github.repository }}.git $DEPLOY_DIR
