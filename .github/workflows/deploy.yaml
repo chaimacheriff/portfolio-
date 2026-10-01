@@ -2,11 +2,12 @@ name: Deploy Portfolio to VPS
 
 on:
   push:
-    branches:
-      - main
-      - dev
-      - develop
+    branches: [main, dev, develop]
   workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -23,83 +24,84 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Install dependencies & Build frontend
+      - name: Install dependencies & Build
         run: |
           npm ci
           npm run build
 
-      - name: Set Environment Variables
-        id: env-vars
+      - name: Set environment variables
         run: |
           if [ "${{ github.ref_name }}" = "main" ]; then
-            echo "ENV_NAME=production" >> $GITHUB_OUTPUT
-            echo "DEPLOY_DIR=/var/www/portfolio/prod" >> $GITHUB_OUTPUT
-            echo "APP_PORT=4000" >> $GITHUB_OUTPUT
-            echo "PM2_NAME=portfolio-prod" >> $GITHUB_OUTPUT
+            echo "ENV_NAME=production" >> $GITHUB_ENV
+            echo "DEPLOY_DIR=/var/www/portfolio/prod" >> $GITHUB_ENV
+            echo "APP_PORT=4000" >> $GITHUB_ENV
+            echo "PM2_NAME=portfolio-prod" >> $GITHUB_ENV
           else
-            echo "ENV_NAME=development" >> $GITHUB_OUTPUT
-            echo "DEPLOY_DIR=/var/www/portfolio/dev" >> $GITHUB_OUTPUT
-            echo "APP_PORT=4001" >> $GITHUB_OUTPUT
-            echo "PM2_NAME=portfolio-dev" >> $GITHUB_OUTPUT
+            echo "ENV_NAME=development" >> $GITHUB_ENV
+            echo "DEPLOY_DIR=/var/www/portfolio/dev" >> $GITHUB_ENV
+            echo "APP_PORT=4001" >> $GITHUB_ENV
+            echo "PM2_NAME=portfolio-dev" >> $GITHUB_ENV
           fi
 
-      - name: Deploy to Contabo VPS via SSH
+      - name: Setup SSH
+        env:
+          SSH_KEY: ${{ secrets.CONTABO_SSH_KEY }}
+          SSH_HOST: ${{ secrets.CONTABO_HOST }}
+          SSH_PORT: ${{ secrets.CONTABO_SSH_PORT || 22 }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Upload files to VPS
+        env:
+          SSH_HOST: ${{ secrets.CONTABO_HOST }}
+          SSH_USER: ${{ secrets.CONTABO_USER }}
+          SSH_PORT: ${{ secrets.CONTABO_SSH_PORT || 22 }}
+        run: |
+          rsync -az --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude 'node_modules' \
+            --exclude '.env' \
+            --exclude 'public/uploads' \
+            --exclude 'public/media' \
+            --exclude 'data/backups' \
+            -e "ssh -i ~/.ssh/id_ed25519 -p $SSH_PORT" \
+            ./ "$SSH_USER@$SSH_HOST:$DEPLOY_DIR/"
+
+      - name: Install & restart on VPS
         uses: appleboy/ssh-action@v1.2.0
         env:
-          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD || 'chaima2027' }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          ENV_NAME: ${{ env.ENV_NAME }}
+          DEPLOY_DIR: ${{ env.DEPLOY_DIR }}
+          APP_PORT: ${{ env.APP_PORT }}
+          PM2_NAME: ${{ env.PM2_NAME }}
         with:
-          host: ${{ secrets.CONTABO_HOST || 'contabo' }}
-          username: ${{ secrets.CONTABO_USER || 'chaima' }}
-          password: ${{ secrets.CONTABO_PASSWORD || '223300' }}
+          host: ${{ secrets.CONTABO_HOST }}
+          username: ${{ secrets.CONTABO_USER }}
+          key: ${{ secrets.CONTABO_SSH_KEY }}
           port: ${{ secrets.CONTABO_SSH_PORT || 22 }}
-          envs: GITHUB_REF_NAME,ENV_NAME,DEPLOY_DIR,APP_PORT,PM2_NAME,ADMIN_PASSWORD
+          envs: ENV_NAME,DEPLOY_DIR,APP_PORT,PM2_NAME,ADMIN_PASSWORD
           script: |
             set -e
+            cd "$DEPLOY_DIR"
 
-            echo "🚀 Début du déploiement vers [$ENV_NAME] sur $DEPLOY_DIR..."
+            echo "📦 Installation des dépendances..."
+            npm ci --omit=dev
 
-            # 1. Créer le dossier cible s'il n'existe pas
-            sudo mkdir -p $DEPLOY_DIR
-            sudo chown -R $USER:$USER $DEPLOY_DIR
-
-            # 2. Cloner le dépôt si nécessaire, ou récupérer les dernières modifications test
-            if [ ! -d "$DEPLOY_DIR/.git" ]; then
-              echo "📦 Premier déploiement: clonage du repo..."
-              git clone https://github.com/${{ github.repository }}.git $DEPLOY_DIR
-              cd $DEPLOY_DIR
-              git checkout ${{ github.ref_name }}
-            else
-              echo "🔄 Mise à jour du code existant..."
-              cd $DEPLOY_DIR
-              git fetch origin ${{ github.ref_name }}
-              git checkout ${{ github.ref_name }}
-              git pull origin ${{ github.ref_name }}
-            fi
-
-            # 3. Installer les dépendances et build test
-            echo "📦 Installation des dépendances et compilation..."
-            npm install
-            npm run build
-
-            # 4. Assurer la présence des dossiers persistants (uploads, backups)
             mkdir -p public/uploads public/media data/backups
 
-            # 5. Redémarrer ou démarrer l'application avec PM2
-            echo "⚡ Gestion du processus PM2 ($PM2_NAME sur le port $APP_PORT)..."
-            
-            # Vérifier si PM2 est installé globalement, sinon l'installer
-            if ! command -v pm2 &> /dev/null; then
-              echo "Installation de PM2..."
-              sudo npm install -g pm2
+            echo "⚡ PM2 ($PM2_NAME, port $APP_PORT)..."
+            export PORT="$APP_PORT" NODE_ENV="$ENV_NAME" ADMIN_PASSWORD="$ADMIN_PASSWORD"
+
+            if pm2 describe "$PM2_NAME" > /dev/null 2>&1; then
+              pm2 restart "$PM2_NAME" --update-env
+            else
+              pm2 start server/index.js --name "$PM2_NAME"
             fi
-
-            # Démarrage ou rechargement avec PM2
-            ADMIN_PWD="${ADMIN_PASSWORD:-chaima2027}"
-            PORT=$APP_PORT NODE_ENV=$ENV_NAME ADMIN_PASSWORD=$ADMIN_PWD pm2 describe $PM2_NAME > /dev/null 2>&1 \
-              && PORT=$APP_PORT NODE_ENV=$ENV_NAME ADMIN_PASSWORD=$ADMIN_PWD pm2 restart $PM2_NAME --update-env \
-              || PORT=$APP_PORT NODE_ENV=$ENV_NAME ADMIN_PASSWORD=$ADMIN_PWD pm2 start server/index.js --name $PM2_NAME
-
             pm2 save
 
-            echo "✅ Déploiement [$ENV_NAME] terminé avec succès !"
-            echo "🌐 Accessible en local sur http://localhost:$APP_PORT"
+            echo "✅ Déploiement [$ENV_NAME] terminé"
