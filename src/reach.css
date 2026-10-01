@@ -1,0 +1,162 @@
+/* ═══════════════════════════════════════════════════════════════
+   CONTACT (.reach) — big invitation + a terminal that types out
+   the ways to reach me. Buttons reuse .landing-cta / .landing-ghost
+   from the hero so the calls-to-action stay consistent.
+   ═══════════════════════════════════════════════════════════════ */
+
+.reach {
+  --r-ink: #f1f0fa;
+  --r-muted: #a9adc3;
+  --r-soft: #7f86a3;
+  --r-line: #d9dcf01f;
+  --r-term: #0c1020d9;
+  --r-term-bar: #ffffff08;
+  --r-edge: #d9d2f02e;
+  --r-dot: #f078b5;
+  --r-key: #9edcf3;
+  --r-cmd: #c391e6;
+  --r-em: linear-gradient(100deg, #a6e5f6 0%, #c5a7ec 45%, #f078b5 100%);
+  /* Tokens the shared hero buttons expect */
+  --l-ink: var(--r-ink);
+  --l-dot: var(--r-dot);
+  --l-glass: #151a2e99;
+  --l-glass-edge: var(--r-edge);
+  --l-accent: linear-gradient(110deg, #9edcf3 0%, #c391e6 52%, #f078b5 100%);
+  --l-ease: cubic-bezier(.22, 1, .36, 1);
+
+  position: relative;
+  padding-top: 110px;
+  padding-bottom: 130px;
+  color: var(--r-ink);
+}
+.site-shell[data-theme="light"] .reach {
+  --r-ink: #25212f;
+  --r-muted: #5f5870;
+  --r-soft: #857e94;
+  --r-line: #2a26381a;
+  --r-term: #1a1830eb;
+  --r-edge: #6d5d8a2e;
+  --r-dot: #bf4b83;
+  --r-em: linear-gradient(100deg, #4f93b0 0%, #8466ab 45%, #c14b84 100%);
+  --l-glass: #ffffffb3;
+  --l-accent: linear-gradient(110deg, #7fbfd6 0%, #a591cc 52%, #d7699c 100%);
+}
+
+.reach-kicker {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--r-line);
+  font: 500 11px 'DM Mono', monospace;
+  letter-spacing: .16em;
+  color: var(--r-soft);
+}
+
+.reach-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+  margin-top: 72px;
+}
+
+.reach-copy h2 {
+  margin: 0;
+  font-size: clamp(52px, 6.6vw, 112px);
+  font-weight: 600;
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+.reach-copy h2 em {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -.04em;
+  background: var(--r-em);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.reach-copy > p:not(.reach-note) { max-width: 460px; margin: 28px 0 32px; font-size: 16px; line-height: 1.75; color: var(--r-muted); }
+.reach-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.reach-copy-btn { cursor: pointer; font-family: inherit; }
+.reach-note { min-height: 20px; margin: 14px 0 0; font-size: 13px; color: var(--r-soft); opacity: 0; transform: translateY(4px); transition: opacity .3s, transform .3s; }
+.reach-note.is-visible { opacity: 1; transform: none; }
+.reach-copy-btn.is-copied { border-color: color-mix(in srgb, var(--r-dot) 70%, transparent); color: var(--r-dot); }
+
+/* ─── Terminal (always dark, like a real one) ─── */
+.reach-term {
+  border: 1px solid var(--r-edge);
+  border-radius: 20px;
+  background: var(--r-term);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: 0 40px 90px #02040c73, 0 0 60px color-mix(in srgb, var(--r-dot) 8%, transparent), inset 0 1px #ffffff14;
+  overflow: hidden;
+  font: 400 14px/1.8 'DM Mono', monospace;
+  color: #d8dbec;
+}
+.reach-term-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 13px 16px;
+  border-bottom: 1px solid #ffffff12;
+  background: var(--r-term-bar);
+}
+.reach-term-bar i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+.reach-term-bar i:nth-child(2) { background: #febc2e; }
+.reach-term-bar i:nth-child(3) { background: #28c840; }
+.reach-term-bar span { margin-left: auto; margin-right: auto; padding-right: 40px; font-size: 11px; letter-spacing: .06em; color: #8d93ad; }
+
+.reach-term-body { min-height: 300px; padding: 20px 22px 24px; }
+.reach-line b { color: var(--r-dot); font-weight: 500; }
+.reach-line span { color: #f1f0fa; }
+.reach-line span.is-typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  width: 0;
+  animation: reach-type calc(var(--n) * 55ms) steps(var(--n)) forwards;
+}
+@keyframes reach-type { to { width: calc(var(--n) * 1ch); } }
+.reach-out { margin: 2px 0 12px; padding-left: 18px; color: #a9adc3; }
+.reach-key { color: #9edcf3; }
+.reach-val { color: #d8dbec; }
+.reach-out a {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #f1f0fa;
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size .35s var(--l-ease), color .25s;
+}
+.reach-out a:hover { color: #ff9cc8; background-size: 100% 1px; }
+.reach-out a svg { opacity: .6; }
+.reach-caret {
+  display: inline-block;
+  width: .6em;
+  height: 1.1em;
+  vertical-align: text-bottom;
+  background: var(--r-dot);
+  animation: reach-blink 1s steps(1) infinite;
+}
+@keyframes reach-blink { 50% { opacity: 0; } }
+
+/* ─── Responsive ─── */
+@media (max-width: 1000px) {
+  .reach-grid { grid-template-columns: 1fr; margin-top: 48px; }
+}
+@media (max-width: 640px) {
+  .reach { padding-top: 80px; padding-bottom: 90px; }
+  .reach-kicker { flex-direction: column; gap: 6px; }
+  .reach-term { font-size: 12.5px; border-radius: 16px; }
+  .reach-term-body { min-height: 260px; padding: 16px 16px 20px; }
+  .reach-out { padding-left: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reach-line span.is-typing { animation: none; width: auto; }
+  .reach-caret { animation: none; }
+}

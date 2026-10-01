@@ -1,0 +1,20 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
+import './styles.css';
+import './galaxy.css';
+import './projects.css';
+import './enhancements.css';
+import './navbar.css';
+import './cursor.css';
+import './background.css';
+import './landing.css';
+import './about.css';
+import './xp.css';
+import './stack.css';
+import './beyond.css';
+import './reach.css';
+import './foot.css';
+import './transitions.css';
+
+createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);

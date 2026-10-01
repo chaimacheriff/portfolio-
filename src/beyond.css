@@ -1,0 +1,203 @@
+/* ═══════════════════════════════════════════════════════════════
+   BEYOND THE TERMINAL (.beyond2) — the human side.
+   Tickets are tilted with the `rotate` property (GSAP reveals own
+   `transform`); hover straightens and lifts them via rotate/translate.
+   Spoken languages are four light cards below.
+   ═══════════════════════════════════════════════════════════════ */
+
+.beyond2 {
+  --b-ink: #f1f0fa;
+  --b-muted: #a9adc3;
+  --b-soft: #7f86a3;
+  --b-card: #151a2e99;
+  --b-edge: #d9d2f02b;
+  --b-edge-hot: #e6a8d866;
+  --b-spot: #c391e622;
+  --b-dot: #f078b5;
+  --b-mono: #f1f0fa0d;
+  --b-track: #ffffff12;
+  --b-accent: linear-gradient(110deg, #9edcf3 0%, #c391e6 52%, #f078b5 100%);
+  --b-em: linear-gradient(100deg, #a6e5f6 0%, #c5a7ec 45%, #f078b5 100%);
+  --b-ease: cubic-bezier(.22, 1, .36, 1);
+
+  position: relative;
+  padding-top: 110px;
+  padding-bottom: 110px;
+  color: var(--b-ink);
+}
+.site-shell[data-theme="light"] .beyond2 {
+  --b-ink: #25212f;
+  --b-muted: #5f5870;
+  --b-soft: #857e94;
+  --b-card: #ffffffb3;
+  --b-edge: #6d5d8a26;
+  --b-edge-hot: #b0588a4d;
+  --b-spot: #c391e61c;
+  --b-dot: #bf4b83;
+  --b-mono: #25212f0a;
+  --b-track: #2a263812;
+  --b-accent: linear-gradient(110deg, #69afc5 0%, #9276b7 52%, #c94f89 100%);
+  --b-em: linear-gradient(100deg, #4f93b0 0%, #8466ab 45%, #c14b84 100%);
+}
+
+.beyond2-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font: 500 11px 'DM Mono', monospace;
+  letter-spacing: .18em;
+  color: var(--b-soft);
+}
+
+/* ─── Top: copy + tickets ─── */
+.beyond2-top {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+.beyond2-copy h2 {
+  margin: 20px 0 0;
+  font-size: clamp(44px, 5vw, 80px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+.beyond2-copy h2 em {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -.035em;
+  background: var(--b-em);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.beyond2-text { max-width: 440px; margin: 26px 0 0; font-size: 16px; line-height: 1.75; color: var(--b-muted); }
+
+.beyond2-tickets { position: relative; display: grid; gap: 0; padding: 10px 0; }
+.beyond2-ticket {
+  --sx: 50%;
+  --sy: 50%;
+  position: relative;
+  padding: 26px 28px 30px;
+  border: 1px solid var(--b-edge);
+  border-radius: 22px;
+  background: var(--b-card);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 24px 60px #02040c47, inset 0 1px #ffffff14;
+  overflow: hidden;
+  isolation: isolate;
+  transition: rotate .6s var(--b-ease), translate .6s var(--b-ease), border-color .4s, box-shadow .4s;
+}
+.site-shell[data-theme="light"] .beyond2-ticket { box-shadow: 0 22px 50px #3a2a4d1f, inset 0 1px #ffffffc0; }
+.beyond2-ticket-a { rotate: -2.2deg; margin-right: 12%; z-index: 1; }
+.beyond2-ticket-b { rotate: 1.8deg; margin-left: 12%; margin-top: -26px; z-index: 2; }
+.beyond2-ticket:hover { rotate: 0deg; translate: 0 -6px; z-index: 3; border-color: var(--b-edge-hot); }
+.beyond2-ticket::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(380px circle at var(--sx) var(--sy), var(--b-spot), transparent 60%);
+  opacity: 0;
+  transition: opacity .35s;
+}
+.beyond2-ticket:hover::before { opacity: 1; }
+
+.beyond2-mono {
+  position: absolute;
+  right: -6px;
+  bottom: -46px;
+  z-index: -1;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 190px;
+  font-style: italic;
+  line-height: 1;
+  color: var(--b-mono);
+  pointer-events: none;
+}
+.beyond2-ticket-head { display: flex; align-items: center; justify-content: space-between; color: var(--b-dot); }
+.beyond2-stamp {
+  padding: 5px 10px;
+  border: 1px dashed color-mix(in srgb, var(--b-dot) 55%, transparent);
+  border-radius: 8px;
+  font: 500 11px 'DM Mono', monospace;
+  letter-spacing: .08em;
+  color: var(--b-dot);
+}
+.beyond2-ticket h3 { margin: 18px 0 0; font-size: clamp(21px, 1.8vw, 26px); font-weight: 600; letter-spacing: -.025em; line-height: 1.15; }
+.beyond2-role { margin: 6px 0 0; font: 500 11px 'DM Mono', monospace; letter-spacing: .06em; color: var(--b-soft); text-transform: uppercase; }
+.beyond2-desc { margin: 14px 0 0; max-width: 46ch; font-size: 14.5px; line-height: 1.65; color: var(--b-muted); }
+/* Ticket perforation along the left edge */
+.beyond2-perf {
+  position: absolute;
+  left: 10px;
+  top: 18px;
+  bottom: 18px;
+  width: 2px;
+  background: radial-gradient(circle, var(--b-edge) 1px, transparent 1.5px) 0 0 / 2px 9px repeat-y;
+  opacity: .9;
+}
+
+/* ─── Languages: four light cards (greeting · name · level dots) ─── */
+.beyond2-langs { margin-top: 96px; }
+.beyond2-lang-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.beyond2-lang-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+  border: 1px solid var(--b-edge);
+  border-radius: 18px;
+  background: var(--b-card);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition: border-color .3s, translate .4s var(--b-ease);
+}
+.beyond2-lang-list li:hover { border-color: var(--b-edge-hot); translate: 0 -3px; }
+.beyond2-hello { font-size: 13px; font-weight: 500; color: var(--b-dot); }
+.beyond2-hello[dir="rtl"] { font-family: 'Noto Kufi Arabic', 'Geeza Pro', 'Segoe UI', sans-serif; align-self: flex-start; }
+.beyond2-lang-list strong { font-size: 20px; font-weight: 600; letter-spacing: -.02em; }
+.beyond2-level {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 4px;
+  font: 500 11px 'DM Mono', monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--b-soft);
+}
+.beyond2-dots { display: inline-flex; gap: 4px; }
+.beyond2-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--b-track); }
+.beyond2-dots i.on { background: var(--b-accent); }
+
+/* ─── Responsive ─── */
+@media (max-width: 1000px) {
+  .beyond2-top { grid-template-columns: 1fr; }
+  .beyond2-lang-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .beyond2 { padding-top: 80px; padding-bottom: 80px; }
+  .beyond2-ticket-a { margin-right: 4%; }
+  .beyond2-ticket-b { margin-left: 4%; margin-top: -14px; }
+  .beyond2-ticket { padding: 22px 20px 24px 26px; }
+  .beyond2-mono { font-size: 140px; bottom: -34px; }
+  .beyond2-langs { margin-top: 64px; }
+  .beyond2-lang-list { gap: 10px; }
+  .beyond2-lang-list li { padding: 16px; }
+  .beyond2-lang-list strong { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .beyond2-ticket, .beyond2-lang-list li { transition: none; }
+}

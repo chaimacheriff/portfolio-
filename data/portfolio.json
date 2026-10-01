@@ -1,0 +1,865 @@
+{
+  "version": 2,
+  "profile": {
+    "name": "Chaima Cherif",
+    "role": {
+      "fr": "Cloud & DevOps Engineer",
+      "en": "Cloud & DevOps Engineer",
+      "de": "Cloud & DevOps Engineer",
+      "it": "Cloud & DevOps Engineer"
+    },
+    "tagline": {
+      "fr": "Je construis des infrastructures cloud qui font avancer les idées.",
+      "en": "I build cloud infrastructure that helps ideas move forward.",
+      "de": "Ich entwickle Cloud-Infrastrukturen, die Ideen voranbringen.",
+      "it": "Costruisco infrastrutture cloud che aiutano le idee a crescere."
+    },
+    "about": {
+      "fr": "Étudiante en 5ème année à ESPRIT, spécialisation ArcTIC — Architecture IT & Cloud Computing. Après trois stages en cloud, infrastructure et développement, je cherche un PFE où allier construction technique et accompagnement de la transformation cloud. Curieuse de nature, j’aime comprendre un problème en profondeur avant de le résoudre.",
+      "en": "I’m a fifth-year engineering student at ESPRIT, specialising in ArcTIC (IT Architecture and Cloud Computing). After three internships across cloud, infrastructure and software development, I’m looking for a final-year placement where I can combine hands-on engineering with cloud transformation consulting. Naturally curious, I like to understand a technical problem deeply before solving it.",
+      "de": "Ich studiere im fünften Jahr Ingenieurwesen an der ESPRIT mit Schwerpunkt ArcTIC (IT-Architektur und Cloud Computing). Nach drei Praktika in den Bereichen Cloud, Infrastruktur und Softwareentwicklung suche ich ein Abschlusspraktikum, das praktische Entwicklung mit der Begleitung von Cloud-Transformation verbindet. Ich bin von Natur aus neugierig und möchte technische Herausforderungen erst gründlich verstehen, bevor ich sie löse.",
+      "it": "Sono al quinto anno di ingegneria informatica presso ESPRIT, con specializzazione ArcTIC (Architettura IT e Cloud Computing). Dopo tre tirocini nei settori cloud, infrastrutture e sviluppo software, cerco un tirocinio finale che unisca progettazione tecnica e accompagnamento della trasformazione cloud. Sono curiosa per natura e mi piace capire a fondo un problema tecnico prima di risolverlo."
+    },
+    "status": {
+      "fr": "PFE · Janvier 2027",
+      "en": "FINAL-YEAR INTERNSHIP · JAN 2027",
+      "de": "ABSCHLUSSPRAKTIKUM · JAN 2027",
+      "it": "TIROCINIO FINALE · GEN 2027"
+    },
+    "availability": {
+      "fr": "À l’écoute des opportunités",
+      "en": "Open to opportunities",
+      "de": "Offen für neue Möglichkeiten",
+      "it": "Disponibile per nuove opportunità"
+    },
+    "location": {
+      "fr": "TUNIS, TUNISIE",
+      "en": "TUNIS, TUNISIA",
+      "de": "TUNIS, TUNESIEN",
+      "it": "TUNISI, TUNISIA"
+    },
+    "education": {
+      "fr": "Diplôme National d’Ingénieur · Computer Engineering",
+      "en": "National Engineering Degree · Computer Engineering",
+      "de": "Nationaler Ingenieurabschluss · Informatik",
+      "it": "Diploma Nazionale di Ingegneria · Ingegneria Informatica"
+    },
+    "school": {
+      "fr": "ESPRIT · Tunis, Tunisie",
+      "en": "ESPRIT · Tunis, Tunisia",
+      "de": "ESPRIT · Tunis, Tunesien",
+      "it": "ESPRIT · Tunisi, Tunisia"
+    },
+    "graduation": {
+      "fr": "Prévu en octobre 2027",
+      "en": "Expected October 2027",
+      "de": "Voraussichtlicher Abschluss: Oktober 2027",
+      "it": "Conseguimento previsto: ottobre 2027"
+    },
+    "email": "chaima.cherif@esprit.tn",
+    "linkedin": "https://www.linkedin.com/in/chaima-cherif-50067a253",
+    "github": "https://github.com/chaimacheriff",
+    "cv": "/Chaima_Cherif_CV.pdf",
+    "portrait": "/media/images/moi/chaimouta.png",
+    "heroChips": [
+      "Kubernetes",
+      "Google Cloud",
+      "Docker",
+      "Grafana"
+    ]
+  },
+  "copy": {
+    "heroEyebrow": {
+      "fr": "INGÉNIEURE EN DEVENIR",
+      "en": "ENGINEER IN THE MAKING",
+      "de": "INGENIEURIN IN AUSBILDUNG",
+      "it": "INGEGNERA IN FORMAZIONE"
+    },
+    "heroSpecialties": {
+      "fr": "CLOUD · PLATEFORME · AUTOMATISATION",
+      "en": "CLOUD · PLATFORMS · AUTOMATION",
+      "de": "CLOUD · PLATTFORMEN · AUTOMATISIERUNG",
+      "it": "CLOUD · PIATTAFORME · AUTOMAZIONE"
+    },
+    "heroTitle1": {
+      "fr": "Le cloud,",
+      "en": "Cloud,",
+      "de": "Cloud,",
+      "it": "Cloud,"
+    },
+    "heroTitle2": {
+      "fr": "du sens.",
+      "en": "with purpose.",
+      "de": "die etwas bewegt.",
+      "it": "con uno scopo."
+    },
+    "heroIntro": {
+      "fr": "Étudiante en ingénierie, je transforme les défis d’infrastructure en systèmes fiables, observables et utiles.",
+      "en": "I’m an engineering student turning infrastructure challenges into reliable, observable systems that make a difference.",
+      "de": "Als Informatikstudentin verwandle ich Infrastrukturherausforderungen in zuverlässige, transparente Systeme mit echtem Nutzen.",
+      "it": "Sono una studentessa di ingegneria e trasformo le sfide infrastrutturali in sistemi affidabili, osservabili e utili."
+    },
+    "aboutKicker": {
+      "fr": "01 — QUI JE SUIS",
+      "en": "01 — ABOUT ME",
+      "de": "01 — ÜBER MICH",
+      "it": "01 — CHI SONO"
+    },
+    "country": {
+      "fr": "ESPRIT · ARCTIC · TUNISIE",
+      "en": "ESPRIT · ARCTIC · TUNISIA",
+      "de": "ESPRIT · ARCTIC · TUNESIEN",
+      "it": "ESPRIT · ARCTIC · TUNISIA"
+    },
+    "aboutTitle1": {
+      "fr": "Comprendre d’abord.",
+      "en": "Understand first.",
+      "de": "Erst verstehen.",
+      "it": "Prima capire."
+    },
+    "aboutTitle2": {
+      "fr": "Construire mieux.",
+      "en": "Build with purpose.",
+      "de": "Dann besser bauen.",
+      "it": "Poi costruire meglio."
+    },
+    "experienceTitle": {
+      "fr": "L’expérience",
+      "en": "Experience",
+      "de": "Berufserfahrung",
+      "it": "Esperienze"
+    },
+    "experienceNote": {
+      "fr": "Du terrain, des systèmes, des résultats.",
+      "en": "Real systems. Hands-on work. Measurable results.",
+      "de": "Praxisnahe Arbeit. Verlässliche Systeme. Messbare Ergebnisse.",
+      "it": "Sul campo, tra sistemi concreti e risultati misurabili."
+    },
+    "projectsTitle": {
+      "fr": "Projets choisis",
+      "en": "Selected projects",
+      "de": "Ausgewählte Projekte",
+      "it": "Progetti selezionati"
+    },
+    "projectsNote": {
+      "fr": "Des idées concrétisées, du concept au déploiement.",
+      "en": "Ideas brought to life, from concept to deployment.",
+      "de": "Ideen, die vom Konzept bis zur Umsetzung gereift sind.",
+      "it": "Idee realizzate, dalla progettazione alla messa in opera."
+    },
+    "expertiseTitle": {
+      "fr": "Ma boîte à outils",
+      "en": "My toolkit",
+      "de": "Mein Werkzeugkasten",
+      "it": "La mia cassetta degli attrezzi"
+    },
+    "expertiseNote": {
+      "fr": "Les outils sont des moyens. La curiosité, le moteur.",
+      "en": "Tools are a means. Curiosity is the engine.",
+      "de": "Werkzeuge sind Mittel zum Zweck. Neugier ist der Antrieb.",
+      "it": "Gli strumenti sono un mezzo. La curiosità è il motore."
+    },
+    "beyondKicker": {
+      "fr": "AU-DELÀ DU TERMINAL",
+      "en": "BEYOND THE TERMINAL",
+      "de": "MEHR ALS NUR CODE",
+      "it": "OLTRE IL CODICE"
+    },
+    "beyondTitle1": {
+      "fr": "Apprendre ensemble.",
+      "en": "Learn together.",
+      "de": "Gemeinsam lernen.",
+      "it": "Imparare insieme."
+    },
+    "beyondTitle2": {
+      "fr": "Faire bouger les lignes.",
+      "en": "Make an impact.",
+      "de": "Wandel gestalten.",
+      "it": "Creare un impatto."
+    },
+    "beyondCopy": {
+      "fr": "Le conseil étudiant et l’entrepreneuriat social m’ont appris à écouter avant de proposer — une compétence aussi essentielle que la technique.",
+      "en": "Student consulting and social entrepreneurship taught me to listen before proposing — a skill just as essential as technical expertise.",
+      "de": "Studentische Beratung und soziales Unternehmertum haben mir gezeigt: Erst zuhören, dann Lösungen vorschlagen. Das ist ebenso wichtig wie technisches Know-how.",
+      "it": "La consulenza studentesca e l’imprenditoria sociale mi hanno insegnato ad ascoltare prima di proporre: una capacità importante quanto la competenza tecnica."
+    },
+    "contactKicker": {
+      "fr": "UNE OPPORTUNITÉ EN TÊTE ?",
+      "en": "HAVE AN OPPORTUNITY IN MIND?",
+      "de": "SIE HABEN EINE MÖGLICHKEIT?",
+      "it": "HAI UN’OPPORTUNITÀ IN MENTE?"
+    },
+    "contactTitle1": {
+      "fr": "Faisons quelque",
+      "en": "Let’s build",
+      "de": "Lassen Sie uns",
+      "it": "Costruiamo"
+    },
+    "contactTitle2": {
+      "fr": "chose d’utile.",
+      "en": "something useful.",
+      "de": "etwas Sinnvolles bauen.",
+      "it": "qualcosa di utile."
+    },
+    "contactCopy": {
+      "fr": "Je recherche un PFE Cloud & DevOps pour janvier 2027. Parlons de ce que nous pourrions construire ensemble.",
+      "en": "I’m looking for a Cloud & DevOps final-year internship starting in January 2027. Let’s talk about what we could build together.",
+      "de": "Ich suche ein Abschlusspraktikum im Bereich Cloud & DevOps ab Januar 2027. Sprechen wir darüber, was wir gemeinsam entwickeln können.",
+      "it": "Cerco un tirocinio finale in ambito Cloud & DevOps da gennaio 2027. Parliamo di ciò che potremmo realizzare insieme."
+    }
+  },
+  "experiences": [
+    {
+      "id": "exp-sofrecom",
+      "company": {
+        "fr": "Sofrecom · Groupe Orange",
+        "en": "Sofrecom · Orange Group",
+        "de": "Sofrecom · Orange-Gruppe",
+        "it": "Sofrecom · Gruppo Orange"
+      },
+      "role": {
+        "fr": "Stagiaire Ingénieure Cloud & IA",
+        "en": "Cloud & AI Engineering Intern",
+        "de": "Praktikantin Cloud & KI",
+        "it": "Tirocinante Cloud & IA"
+      },
+      "place": {
+        "fr": "Tunis, Tunisie",
+        "en": "Tunis, Tunisia",
+        "de": "Tunis, Tunesien",
+        "it": "Tunisi, Tunisia"
+      },
+      "period": {
+        "fr": "Juillet – Août 2026",
+        "en": "Jul – Aug 2026",
+        "de": "Juli – Aug. 2026",
+        "it": "Lug. – Ago. 2026"
+      },
+      "summary": {
+        "fr": "Conception d’un agent IA autonome qui évalue les notes de version Google Cloud selon leur criticité et leurs impacts FinOps et sécurité, puis met en avant les annonces pertinentes.",
+        "en": "Built an autonomous AI agent that assesses Google Cloud release notes for criticality, FinOps and security impact, then surfaces the announcements that matter.",
+        "de": "Entwicklung eines autonomen KI-Agenten, der Google-Cloud-Release-Notes nach Kritikalität sowie FinOps- und Sicherheitsauswirkungen bewertet und relevante Meldungen hervorhebt.",
+        "it": "Ho progettato un agente IA autonomo che valuta le note di rilascio di Google Cloud per criticità e impatti FinOps e sicurezza, evidenziando gli aggiornamenti più rilevanti."
+      },
+      "details": {
+        "fr": "Backend Python/Flask, analyse LLM avec Groq et déduplication avec ChromaDB, relié à un tableau de bord Angular 19 et son chatbot. Déploiement sur Cloud Run avec Artifact Registry, Secret Manager et IAP. 60 tests automatisés et correction d’un biais qui sous-évaluait la gravité des annonces.",
+        "en": "Python/Flask backend with Groq LLM analysis and ChromaDB deduplication, connected to an Angular 19 dashboard and chatbot. Deployed on Cloud Run with Artifact Registry, Secret Manager and IAP. Built 60 automated tests and corrected a bias that consistently underrated release severity.",
+        "de": "Python/Flask-Backend mit Groq-LLM-Analyse und ChromaDB-Deduplizierung, verbunden mit einem Angular-19-Dashboard und Chatbot. Bereitstellung auf Cloud Run mit Artifact Registry, Secret Manager und IAP. 60 automatisierte Tests und Behebung einer systematischen Unterschätzung des Schweregrads von Meldungen.",
+        "it": "Backend Python/Flask con analisi LLM tramite Groq e deduplicazione con ChromaDB, collegato a una dashboard Angular 19 con chatbot. Distribuzione su Cloud Run con Artifact Registry, Secret Manager e IAP. Realizzazione di 60 test automatici e correzione di una distorsione che sottostimava la gravità degli aggiornamenti."
+      },
+      "metrics": [
+        {
+          "fr": "84 % de précision sur la criticité",
+          "en": "84% criticality accuracy",
+          "de": "84 % Genauigkeit bei Kritikalität",
+          "it": "84% accuratezza sulla criticità"
+        },
+        {
+          "fr": "97 % de précision FinOps",
+          "en": "97% FinOps accuracy",
+          "de": "97 % Genauigkeit bei FinOps",
+          "it": "97% accuratezza FinOps"
+        },
+        {
+          "fr": "100 % de détection des impacts sécurité",
+          "en": "100% security impact detection",
+          "de": "100 % Erkennung von Sicherheitsauswirkungen",
+          "it": "100% rilevamento impatti sulla sicurezza"
+        }
+      ],
+      "stack": [
+        "Python",
+        "Flask",
+        "Angular 19",
+        "Google Cloud",
+        "ChromaDB",
+        "Groq LLM",
+        "Docker"
+      ]
+    },
+    {
+      "id": "exp-sotetel",
+      "company": {
+        "fr": "SOTETEL",
+        "en": "SOTETEL",
+        "de": "SOTETEL",
+        "it": "SOTETEL"
+      },
+      "role": {
+        "fr": "Stagiaire Supervision Cloud & Réseau",
+        "en": "Cloud & Network Monitoring Intern",
+        "de": "Praktikantin Cloud- und Netzwerküberwachung",
+        "it": "Tirocinante Monitoraggio Cloud e Reti"
+      },
+      "place": {
+        "fr": "Tunis, Tunisie",
+        "en": "Tunis, Tunisia",
+        "de": "Tunis, Tunesien",
+        "it": "Tunisi, Tunisia"
+      },
+      "period": {
+        "fr": "Juin – Juillet 2025",
+        "en": "Jun – Jul 2025",
+        "de": "Juni – Juli 2025",
+        "it": "Giu. – Lug. 2025"
+      },
+      "summary": {
+        "fr": "Déploiement d’une supervision Zabbix sur Ubuntu pour suivre des serveurs Linux et des équipements réseau à l’aide de SNMP et ICMP.",
+        "en": "Deployed Zabbix monitoring on Ubuntu to track Linux hosts and network devices through SNMP and ICMP.",
+        "de": "Einrichtung einer Zabbix-Überwachung unter Ubuntu zur Kontrolle von Linux-Hosts und Netzwerkgeräten über SNMP und ICMP.",
+        "it": "Ho implementato il monitoraggio Zabbix su Ubuntu per controllare host Linux e dispositivi di rete tramite SNMP e ICMP."
+      },
+      "details": {
+        "fr": "Configuration d’alertes à plusieurs niveaux pour détecter les incidents en moins d’une minute. Création d’un tableau de bord temps réel avec Node.js, Express et Chart.js, relié à l’API REST de Zabbix et actualisé toutes les 5 secondes. Validation avec 6 scénarios d’incidents simulés.",
+        "en": "Configured multi-level alerts to detect incidents in under a minute. Built a real-time dashboard with Node.js, Express and Chart.js, connected to the Zabbix REST API and refreshed every five seconds. Validated with six simulated incident scenarios.",
+        "de": "Einrichtung mehrstufiger Alarme zur Erkennung von Vorfällen in unter einer Minute. Entwicklung eines Echtzeit-Dashboards mit Node.js, Express und Chart.js, angebunden an die Zabbix-REST-API und mit Aktualisierung alle fünf Sekunden. Validierung anhand von sechs simulierten Vorfallszenarien.",
+        "it": "Configurazione di avvisi multilivello per rilevare gli incidenti in meno di un minuto. Sviluppo di una dashboard in tempo reale con Node.js, Express e Chart.js, collegata all’API REST di Zabbix e aggiornata ogni cinque secondi. Verifica con sei scenari di incidente simulati."
+      },
+      "metrics": [],
+      "stack": [
+        "Zabbix",
+        "SNMP",
+        "ICMP",
+        "Node.js",
+        "Express",
+        "Chart.js",
+        "MySQL",
+        "Ubuntu"
+      ]
+    },
+    {
+      "id": "exp-tekru",
+      "company": {
+        "fr": "Tekru Technologies",
+        "en": "Tekru Technologies",
+        "de": "Tekru Technologies",
+        "it": "Tekru Technologies"
+      },
+      "role": {
+        "fr": "Stagiaire Développeuse Full-Stack",
+        "en": "Full-Stack Developer Intern",
+        "de": "Praktikantin Full-Stack-Entwicklung",
+        "it": "Tirocinante Sviluppatrice Full-Stack"
+      },
+      "place": {
+        "fr": "Tunisie",
+        "en": "Tunisia",
+        "de": "Tunesien",
+        "it": "Tunisia"
+      },
+      "period": {
+        "fr": "Juin – Juillet 2024",
+        "en": "Jun – Jul 2024",
+        "de": "Juni – Juli 2024",
+        "it": "Giu. – Lug. 2024"
+      },
+      "summary": {
+        "fr": "Développement de bout en bout d’une application web de gestion de voyages.",
+        "en": "Developed a travel management web application from end to end.",
+        "de": "Entwicklung einer Webanwendung zur Reiseverwaltung von der Konzeption bis zur Umsetzung.",
+        "it": "Ho sviluppato da zero un’applicazione web per la gestione dei viaggi."
+      },
+      "details": {
+        "fr": "Frontend Next.js et Tailwind CSS, API GraphQL en Node.js/TypeScript et base MySQL. Participation à un cycle Agile/Scrum complet, de la planification des sprints à la livraison.",
+        "en": "Next.js and Tailwind CSS frontend, GraphQL API with Node.js/TypeScript, and a MySQL database. Contributed to a full Agile/Scrum cycle from sprint planning through delivery.",
+        "de": "Frontend mit Next.js und Tailwind CSS, GraphQL-API mit Node.js/TypeScript und MySQL-Datenbank. Mitarbeit im vollständigen Agile-/Scrum-Zyklus von der Sprintplanung bis zur Auslieferung.",
+        "it": "Frontend con Next.js e Tailwind CSS, API GraphQL in Node.js/TypeScript e database MySQL. Partecipazione a un ciclo Agile/Scrum completo, dalla pianificazione degli sprint alla consegna."
+      },
+      "metrics": [],
+      "stack": [
+        "Next.js",
+        "Tailwind CSS",
+        "GraphQL",
+        "Node.js",
+        "TypeScript",
+        "MySQL"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-cloud",
+      "title": {
+        "fr": "Glowgirl · Infrastructure cloud privée & plateforme ODD",
+        "en": "Glowgirl · Private cloud infrastructure & SDG platform",
+        "de": "Glowgirl · Private-Cloud-Infrastruktur & SDG-Plattform",
+        "it": "Glowgirl · Infrastruttura cloud privata e piattaforma ODD"
+      },
+      "category": {
+        "fr": "SaaS · Cloud privé · Impact social",
+        "en": "SaaS · Private cloud · Social impact",
+        "de": "SaaS · Private Cloud · Soziale Wirkung",
+        "it": "SaaS · Cloud privato · Impatto sociale"
+      },
+      "period": {
+        "fr": "Oct. 2025 – Mai 2026",
+        "en": "Oct 2025 – May 2026",
+        "de": "Okt. 2025 – Mai 2026",
+        "it": "Ott. 2025 – Mag. 2026"
+      },
+      "description": {
+        "fr": "Glowgirl, un SaaS dédié au bien-être féminin, porté par un cloud privé IaaS et une plateforme alignée sur les Objectifs de Développement Durable.",
+        "en": "Glowgirl is a women’s wellness SaaS, supported by a private IaaS cloud and a platform aligned with the UN Sustainable Development Goals.",
+        "de": "Glowgirl ist ein SaaS für Frauengesundheit und Wohlbefinden, betrieben auf einer privaten IaaS-Cloud und einer Plattform im Einklang mit den UN-Nachhaltigkeitszielen.",
+        "it": "Glowgirl è un SaaS dedicato al benessere femminile, supportato da un cloud IaaS privato e da una piattaforma in linea con gli Obiettivi di Sviluppo Sostenibile dell’ONU."
+      },
+      "details": {
+        "fr": "Infrastructure OpenStack pour héberger Glowgirl. Services Docker orchestrés par Kubernetes, avec mise à l’échelle automatique et auto-réparation ; déploiement automatisé par Ansible. Observabilité Prometheus/Grafana, modèles IA/ML pour optimiser les performances et plateforme Spring Boot + Angular développée sur un cycle Agile de 20 semaines.",
+        "en": "OpenStack infrastructure hosting Glowgirl. Docker workloads orchestrated by Kubernetes with autoscaling and self-healing, provisioned with Ansible. Prometheus/Grafana observability, AI/ML models for performance optimisation and a Spring Boot + Angular platform delivered over a 20-week Agile cycle.",
+        "de": "OpenStack-Infrastruktur für Glowgirl. Docker-Workloads auf Kubernetes mit automatischer Skalierung und Selbstheilung, automatisiert durch Ansible. Prometheus/Grafana-Monitoring, KI-/ML-Modelle zur Leistungsoptimierung und eine Spring-Boot-/Angular-Plattform, umgesetzt in einem 20-wöchigen Agile-Zyklus.",
+        "it": "Infrastruttura OpenStack che ospita Glowgirl. Workload Docker orchestrati con Kubernetes, autoscaling e autoriparazione, con provisioning Ansible. Osservabilità Prometheus/Grafana, modelli IA/ML per ottimizzare le prestazioni e piattaforma Spring Boot + Angular sviluppata in un ciclo Agile di 20 settimane."
+      },
+      "groups": [
+        "cloud",
+        "infra"
+      ],
+      "featured": true,
+      "stack": [
+        "OpenStack",
+        "Kubernetes",
+        "Docker",
+        "Ansible",
+        "Prometheus",
+        "Grafana",
+        "Spring Boot",
+        "Angular"
+      ],
+      "images": [
+        "/media/images/projects/glowgirl/cycle1.png",
+        "/media/images/projects/glowgirl/cycle2.png",
+        "/media/images/projects/glowgirl/nutrition1.png",
+        "/media/images/projects/glowgirl/nutirition2.png",
+        "/media/images/projects/glowgirl/fitness1.png",
+        "/media/images/projects/glowgirl/fitness2.png",
+        "/uploads/1790785534882-c873a0b0.png"
+      ],
+      "device": "desktop"
+    },
+    {
+      "id": "project-workflow",
+      "title": {
+        "fr": "Workflow · RH & gestion des incidents",
+        "en": "Workflow · HR & incident management",
+        "de": "Workflow · Personalwesen & Vorfälle",
+        "it": "Workflow · Risorse umane e incidenti"
+      },
+      "category": {
+        "fr": "Full-stack · Desktop & web",
+        "en": "Full-stack · Desktop & web",
+        "de": "Full-Stack · Desktop & Web",
+        "it": "Full-stack · Desktop e web"
+      },
+      "period": {
+        "fr": "Jan. 2025 – Aujourd’hui",
+        "en": "Jan 2025 – Present",
+        "de": "Jan. 2025 – heute",
+        "it": "Gen. 2025 – oggi"
+      },
+      "description": {
+        "fr": "Une plateforme RH hybride qui réunit une application web Symfony et un client desktop JavaFX.",
+        "en": "A hybrid HR platform combining a Symfony web application with a JavaFX desktop client.",
+        "de": "Eine hybride HR-Plattform mit Symfony-Webanwendung und JavaFX-Desktop-Client.",
+        "it": "Piattaforma HR ibrida con applicazione web Symfony e client desktop JavaFX."
+      },
+      "details": {
+        "fr": "Développement du module de gestion des incidents, avec notifications automatiques par SMS et e-mail ainsi qu’un chatbot assistant.",
+        "en": "Built the incident management module, including automated SMS and email notifications and an assistant chatbot.",
+        "de": "Entwicklung des Vorfallmanagement-Moduls mit automatisierten SMS- und E-Mail-Benachrichtigungen sowie einem Chatbot-Assistenten.",
+        "it": "Sviluppo del modulo di gestione degli incidenti, con notifiche SMS ed e-mail automatiche e chatbot di assistenza."
+      },
+      "groups": [
+        "apps"
+      ],
+      "featured": false,
+      "stack": [
+        "Symfony",
+        "JavaFX",
+        "PHP",
+        "MySQL",
+        "SMS API"
+      ],
+      "images": [
+        "/media/projects/workflow.jpg",
+        "/media/images/projects/worklow/483161666_1024258169660136_4476411421782662973_n%20%281%29.jpg"
+      ],
+      "device": "desktop"
+    },
+    {
+      "id": "project-joot",
+      "title": {
+        "fr": "JOOT · Livraison de repas",
+        "en": "JOOT · Food delivery app",
+        "de": "JOOT · Essenslieferung per App",
+        "it": "JOOT · Consegna di pasti"
+      },
+      "category": {
+        "fr": "Mobile · Livraison de repas",
+        "en": "Mobile · Food delivery",
+        "de": "Mobil · Essenslieferung",
+        "it": "Mobile · Consegna pasti"
+      },
+      "period": {
+        "fr": "Projet mobile",
+        "en": "Mobile project",
+        "de": "Mobiles Projekt",
+        "it": "Progetto mobile"
+      },
+      "description": {
+        "fr": "Application mobile de livraison de repas conçue avec FlutterFlow.",
+        "en": "A mobile food delivery application built with FlutterFlow.",
+        "de": "Eine mobile Anwendung für Essenslieferungen, entwickelt mit FlutterFlow.",
+        "it": "Applicazione mobile per la consegna di pasti, realizzata con FlutterFlow."
+      },
+      "details": {
+        "fr": "Une expérience mobile simple pour découvrir des restaurants et commander des repas.",
+        "en": "A straightforward mobile experience for discovering restaurants and ordering meals.",
+        "de": "Eine unkomplizierte mobile Erfahrung, um Restaurants zu entdecken und Essen zu bestellen.",
+        "it": "Esperienza mobile semplice per scoprire ristoranti e ordinare i propri piatti."
+      },
+      "groups": [
+        "cloud",
+        "apps"
+      ],
+      "featured": false,
+      "stack": [
+        "FlutterFlow"
+      ],
+      "images": [
+        "/media/images/projects/joot/joot_logo.png"
+      ],
+      "device": "phone"
+    },
+    {
+      "id": "project-ewave",
+      "title": {
+        "fr": "Ewave · Gestion de club nautique",
+        "en": "Ewave · Sailing club management",
+        "de": "Ewave · Verwaltung eines Segelclubs",
+        "it": "Ewave · Gestione club nautico"
+      },
+      "category": {
+        "fr": "Desktop · C++",
+        "en": "Desktop · C++",
+        "de": "Desktop · C++",
+        "it": "Desktop · C++"
+      },
+      "period": {
+        "fr": "Projet académique",
+        "en": "Academic project",
+        "de": "Studienprojekt",
+        "it": "Progetto accademico"
+      },
+      "description": {
+        "fr": "Application desktop de gestion conçue pour un club nautique.",
+        "en": "A desktop management application designed for a sailing club.",
+        "de": "Eine Desktop-Anwendung zur Verwaltung eines Segelclubs.",
+        "it": "Applicazione desktop per la gestione di un club nautico."
+      },
+      "details": {
+        "fr": "Application de gestion développée en C++ avec Qt.",
+        "en": "A management application developed in C++ with Qt.",
+        "de": "Eine Verwaltungsanwendung, entwickelt mit C++ und Qt.",
+        "it": "Applicazione gestionale sviluppata in C++ con Qt."
+      },
+      "groups": [
+        "apps"
+      ],
+      "featured": false,
+      "stack": [
+        "C++",
+        "Qt"
+      ],
+      "images": [
+        "/media/images/projects/ewave/ewave_logo.png"
+      ],
+      "device": "desktop"
+    },
+    {
+      "id": "project-release-agent",
+      "title": {
+        "fr": "Agent IA d’analyse des nouveautés Google Cloud",
+        "en": "Google Cloud release intelligence agent",
+        "de": "KI-Agent für Google-Cloud-Neuerungen",
+        "it": "Agente IA per le novità Google Cloud"
+      },
+      "category": {
+        "fr": "Sofrecom · Cloud & IA",
+        "en": "Sofrecom · Cloud & AI",
+        "de": "Sofrecom · Cloud & KI",
+        "it": "Sofrecom · Cloud e IA"
+      },
+      "period": {
+        "fr": "Juil. – Août 2026",
+        "en": "Jul – Aug 2026",
+        "de": "Juli – Aug. 2026",
+        "it": "Lug. – Ago. 2026"
+      },
+      "description": {
+        "fr": "Un agent autonome qui transforme les notes de version Google Cloud en recommandations classées par criticité et impacts FinOps et sécurité.",
+        "en": "An autonomous agent that turns Google Cloud release notes into recommendations ranked by criticality, FinOps and security impact.",
+        "de": "Ein autonomer Agent, der Google-Cloud-Release-Notes nach Kritikalität sowie FinOps- und Sicherheitsauswirkungen bewertet.",
+        "it": "Agente autonomo che trasforma le note di rilascio di Google Cloud in raccomandazioni ordinate per criticità e impatti FinOps e sicurezza."
+      },
+      "details": {
+        "fr": "Pipeline Python/Flask, analyse de langage avec Groq et déduplication sémantique avec ChromaDB, reliés à un tableau de bord Angular. Déployé sur Cloud Run et couvert par 60 tests automatisés.",
+        "en": "Python/Flask pipeline with Groq language analysis and semantic deduplication through ChromaDB, connected to an Angular dashboard. Deployed on Cloud Run and covered by 60 automated tests.",
+        "de": "Python/Flask-Pipeline mit Sprachanalyse durch Groq und semantischer Deduplizierung mit ChromaDB, verbunden mit einem Angular-Dashboard. Auf Cloud Run bereitgestellt und mit 60 automatisierten Tests abgesichert.",
+        "it": "Pipeline Python/Flask con analisi linguistica tramite Groq e deduplicazione semantica con ChromaDB, collegata a una dashboard Angular. Distribuita su Cloud Run e coperta da 60 test automatici."
+      },
+      "groups": [
+        "cloud"
+      ],
+      "featured": false,
+      "stack": [
+        "Python",
+        "Groq LLM",
+        "ChromaDB",
+        "Angular 19",
+        "Cloud Run"
+      ],
+      "images": [
+        "/media/projects/cloud-release-agent.png",
+        "/media/images/projects/gcp%20monitor/2.png",
+        "/media/images/projects/gcp%20monitor/3.png",
+        "/media/images/projects/gcp%20monitor/4.png",
+        "/media/images/projects/gcp%20monitor/5.png",
+        "/media/images/projects/gcp%20monitor/6.png",
+        "/media/images/projects/gcp%20monitor/7.png",
+        "/media/images/projects/gcp%20monitor/8.png",
+        "/media/images/projects/gcp%20monitor/9.png"
+      ],
+      "device": "desktop"
+    },
+    {
+      "id": "project-zabbix",
+      "title": {
+        "fr": "Supervision réseau en temps réel",
+        "en": "Real-time network monitoring",
+        "de": "Echtzeitüberwachung von Netzwerken",
+        "it": "Monitoraggio di rete in tempo reale"
+      },
+      "category": {
+        "fr": "SOTETEL · Cloud & réseau",
+        "en": "SOTETEL · Cloud & networking",
+        "de": "SOTETEL · Cloud & Netzwerk",
+        "it": "SOTETEL · Cloud e reti"
+      },
+      "period": {
+        "fr": "Juin – Juil. 2025",
+        "en": "Jun – Jul 2025",
+        "de": "Juni – Juli 2025",
+        "it": "Giu. – Lug. 2025"
+      },
+      "description": {
+        "fr": "Supervision centralisée des serveurs Linux et des équipements réseau, avec alertes à plusieurs niveaux et tableau de bord temps réel.",
+        "en": "Centralized monitoring for Linux hosts and network devices, with multi-level alerts and a real-time dashboard.",
+        "de": "Zentrale Überwachung von Linux-Hosts und Netzwerkgeräten mit mehrstufigen Alarmen und Echtzeit-Dashboard.",
+        "it": "Monitoraggio centralizzato di host Linux e dispositivi di rete, con avvisi multilivello e dashboard in tempo reale."
+      },
+      "details": {
+        "fr": "Zabbix Server 6 sur Ubuntu 24.04, collecte SNMP/ICMP et tableau de bord Express/Chart.js alimenté par l’API REST de Zabbix.",
+        "en": "Zabbix Server 6 on Ubuntu 24.04, SNMP/ICMP collection and an Express/Chart.js dashboard powered by the Zabbix REST API.",
+        "de": "Zabbix Server 6 unter Ubuntu 24.04, SNMP/ICMP-Datenerfassung und ein Express-/Chart.js-Dashboard mit Zabbix-REST-API.",
+        "it": "Zabbix Server 6 su Ubuntu 24.04, raccolta SNMP/ICMP e dashboard Express/Chart.js collegata all’API REST di Zabbix."
+      },
+      "groups": [
+        "infra"
+      ],
+      "featured": false,
+      "stack": [
+        "Zabbix",
+        "SNMP",
+        "ICMP",
+        "Node.js",
+        "Chart.js"
+      ],
+      "images": [
+        "/media/projects/zabbix-supervision.png",
+        "/media/images/projects/zabbix/Capture%20d%E2%80%99e%CC%81cran%202026-02-15%20a%CC%80%201.14.31%E2%80%AFAM.png"
+      ],
+      "device": "desktop"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill-cloud",
+      "name": {
+        "fr": "Cloud & infrastructure",
+        "en": "Cloud & infrastructure",
+        "de": "Cloud & Infrastruktur",
+        "it": "Cloud e infrastruttura"
+      },
+      "items": [
+        "Google Cloud Platform",
+        "OpenStack",
+        "Docker",
+        "Kubernetes",
+        "Ansible",
+        "Linux / Ubuntu"
+      ]
+    },
+    {
+      "id": "skill-observability",
+      "name": {
+        "fr": "Observabilité & réseau",
+        "en": "Observability & networking",
+        "de": "Monitoring & Netzwerke",
+        "it": "Osservabilità e reti"
+      },
+      "items": [
+        "Prometheus",
+        "Grafana",
+        "Zabbix",
+        "SNMP",
+        "ICMP"
+      ]
+    },
+    {
+      "id": "skill-development",
+      "name": {
+        "fr": "Développement",
+        "en": "Development",
+        "de": "Entwicklung",
+        "it": "Sviluppo"
+      },
+      "items": [
+        "Python",
+        "Java",
+        "C / C++",
+        "PHP",
+        "JavaScript / TypeScript",
+        "SQL"
+      ]
+    },
+    {
+      "id": "skill-frameworks",
+      "name": {
+        "fr": "Frameworks & données",
+        "en": "Frameworks & data",
+        "de": "Frameworks & Daten",
+        "it": "Framework e dati"
+      },
+      "items": [
+        "Flask",
+        "Spring Boot",
+        "Symfony",
+        "Node.js",
+        "Next.js",
+        "Angular",
+        "MySQL",
+        "SQLite",
+        "ChromaDB"
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "id": "activity-inceptum",
+      "organization": "Inceptum Junior Enterprise",
+      "role": {
+        "fr": "Membre · Conseil étudiant & gestion de projet",
+        "en": "Member · Student consulting & project management",
+        "de": "Mitglied · Beratung & Projektmanagement",
+        "it": "Membro · Consulenza e gestione progetti"
+      },
+      "period": "2023 – 2025",
+      "description": {
+        "fr": "Missions de conseil pour de vrais clients et gestion de projets de bout en bout aux côtés d’autres étudiants.",
+        "en": "Delivered consulting assignments for real clients and managed projects end to end alongside fellow students.",
+        "de": "Beratungsprojekte für echte Kunden und ganzheitliches Projektmanagement gemeinsam mit anderen Studierenden.",
+        "it": "Progetti di consulenza per clienti reali e gestione end-to-end insieme ad altri studenti."
+      }
+    },
+    {
+      "id": "activity-enactus",
+      "organization": "Enactus EMC",
+      "role": {
+        "fr": "Membre du département Projets",
+        "en": "Projects department member",
+        "de": "Mitglied der Projektabteilung",
+        "it": "Membro del dipartimento Progetti"
+      },
+      "period": "2022 – 2023",
+      "description": {
+        "fr": "Projets d’entrepreneuriat social et d’impact communautaire, planification et coordination d’équipe.",
+        "en": "Contributed to social entrepreneurship and community impact projects through planning and team coordination.",
+        "de": "Mitwirkung an sozialunternehmerischen Projekten mit gesellschaftlichem Mehrwert sowie an Planung und Teamkoordination.",
+        "it": "Partecipazione a progetti di imprenditoria sociale e impatto comunitario, con attività di pianificazione e coordinamento."
+      }
+    }
+  ],
+  "languages": [
+    {
+      "id": "lang-ar",
+      "code": "ar",
+      "greeting": "مرحبا",
+      "score": 4,
+      "name": {
+        "fr": "Arabe",
+        "en": "Arabic",
+        "de": "Arabisch",
+        "it": "Arabo"
+      },
+      "level": {
+        "fr": "maternelle",
+        "en": "native",
+        "de": "Muttersprache",
+        "it": "madrelingua"
+      }
+    },
+    {
+      "id": "lang-fr",
+      "code": "fr",
+      "greeting": "Bonjour",
+      "score": 4,
+      "name": {
+        "fr": "Français",
+        "en": "French",
+        "de": "Französisch",
+        "it": "Francese"
+      },
+      "level": {
+        "fr": "courant",
+        "en": "fluent",
+        "de": "fließend",
+        "it": "fluente"
+      }
+    },
+    {
+      "id": "lang-en",
+      "code": "en",
+      "greeting": "Hello",
+      "score": 3,
+      "name": {
+        "fr": "Anglais",
+        "en": "English",
+        "de": "Englisch",
+        "it": "Inglese"
+      },
+      "level": {
+        "fr": "B2",
+        "en": "B2",
+        "de": "B2",
+        "it": "B2"
+      }
+    },
+    {
+      "id": "lang-it",
+      "code": "it",
+      "greeting": "Ciao",
+      "score": 1,
+      "name": {
+        "fr": "Italien",
+        "en": "Italian",
+        "de": "Italienisch",
+        "it": "Italiano"
+      },
+      "level": {
+        "fr": "notions",
+        "en": "beginner",
+        "de": "Grundkenntnisse",
+        "it": "base"
+      }
+    }
+  ]
+}

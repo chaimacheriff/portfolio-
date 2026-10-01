@@ -1,0 +1,30 @@
+/* ═══════════════════════════════════════════════════════════════
+   PAGE-LEVEL TRANSITIONS (View Transitions API, see withTransition in App.jsx)
+   theme  → the new theme spreads as a circle from the toggle (--vt-x/--vt-y/--vt-r)
+   locale → a short cross-fade with a tiny lift
+   Browsers without the API simply switch instantly.
+   ═══════════════════════════════════════════════════════════════ */
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: .35s; animation-timing-function: cubic-bezier(.22, 1, .36, 1); }
+
+html[data-vt="theme"]::view-transition-old(root) { animation: none; }
+html[data-vt="theme"]::view-transition-new(root) {
+  animation: vt-theme-reveal .75s cubic-bezier(.65, 0, .35, 1) both;
+}
+@keyframes vt-theme-reveal {
+  from { clip-path: circle(0 at var(--vt-x) var(--vt-y)); }
+  to { clip-path: circle(var(--vt-r) at var(--vt-x) var(--vt-y)); }
+}
+
+html[data-vt="locale"]::view-transition-old(root) { animation: vt-fade-out .22s ease both; }
+html[data-vt="locale"]::view-transition-new(root) { animation: vt-fade-in .38s cubic-bezier(.22, 1, .36, 1) .06s both; }
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-in { from { opacity: 0; transform: translateY(6px); } }
+
+/* Navbar drops in with the hero on first load */
+.navbar { animation: navbar-in .9s cubic-bezier(.22, 1, .36, 1) .05s both; }
+@keyframes navbar-in { from { opacity: 0; translate: 0 -24px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar { animation: none; }
+}

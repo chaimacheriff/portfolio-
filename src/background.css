@@ -1,0 +1,37 @@
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATED BACKGROUND — one fixed aurora canvas behind the page.
+   The canvas sits at z-index -1 inside the isolated .site-shell, so it
+   paints above the shell colour but below every section's content.
+   Section-level static gradients are removed so the aurora shows through.
+   ═══════════════════════════════════════════════════════════════ */
+.site-shell { isolation: isolate; }
+
+.aurora-bg {
+  position: fixed;
+  inset: -6vmax;
+  width: calc(100vw + 12vmax);
+  height: calc(100vh + 12vmax);
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(28px);
+}
+
+.site-shell .hero,
+.site-shell .intro-band,
+.site-shell .experience,
+.site-shell .projects,
+.site-shell .expertise,
+.site-shell .contact,
+.site-shell[data-theme="light"] .hero,
+.site-shell[data-theme="light"] .intro-band,
+.site-shell[data-theme="light"] .experience,
+.site-shell[data-theme="light"] .projects,
+.site-shell[data-theme="light"] .expertise,
+.site-shell[data-theme="light"] .contact { background: none !important; }
+
+.site-shell .hero::before,
+.site-shell .intro-band::before,
+.site-shell .projects::before,
+.site-shell[data-theme="light"] .hero::before,
+.site-shell[data-theme="light"] .intro-band::before,
+.site-shell[data-theme="light"] .projects::before { background: none !important; }

@@ -1,0 +1,26 @@
+/* FOOTER — one quiet line: brand · links · © + admin. */
+.foot {
+  --f-ink: #f1f0fa;
+  --f-soft: #8a90ab;
+  --f-line: #d9dcf01f;
+  --f-dot: #f078b5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  border-top: 1px solid var(--f-line);
+  color: var(--f-soft);
+  font-size: 13px;
+}
+.site-shell[data-theme="light"] .foot { --f-ink: #25212f; --f-soft: #7a7390; --f-line: #2a26381a; --f-dot: #bf4b83; }
+.foot a { color: inherit; text-decoration: none; transition: color .25s; }
+.foot a:hover { color: var(--f-ink); }
+.foot-brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--f-ink) !important; }
+.foot-brand img { width: 26px; height: 26px; object-fit: contain; }
+.foot-links { display: flex; gap: 24px; }
+.foot-meta { font: 500 11px 'DM Mono', monospace; letter-spacing: .08em; text-transform: uppercase; }
+@media (max-width: 640px) {
+  .foot { flex-direction: column; gap: 14px; padding-top: 24px; padding-bottom: 24px; }
+}

@@ -1,0 +1,230 @@
+/* ═══════════════════════════════════════════════════════════════
+   EXPERTISE (.stack) — "stack galaxy".
+   Left: category tabs (auto-cycling, with a timer bar).
+   Right: one orbit per category; planets counter-rotate to stay upright.
+   Ring geometry: --r = ring diameter (% of galaxy), --a = planet angle,
+   --dur / --dir = orbit speed and direction.
+   ═══════════════════════════════════════════════════════════════ */
+
+.stack {
+  --s-ink: #f1f0fa;
+  --s-muted: #a9adc3;
+  --s-soft: #7f86a3;
+  --s-line: #d9dcf01f;
+  --s-ring: #d9dcf01c;
+  --s-ring-hot: #e6a8d86b;
+  --s-pill: #151a2ecc;
+  --s-pill-edge: #d9d2f02e;
+  --s-dot: #f078b5;
+  --s-accent: linear-gradient(110deg, #9edcf3 0%, #c391e6 52%, #f078b5 100%);
+  --s-core: radial-gradient(circle at 35% 30%, #2a2f52, #141a2e 70%);
+  --s-ease: cubic-bezier(.22, 1, .36, 1);
+
+  position: relative;
+  padding-top: 110px;
+  padding-bottom: 110px;
+  color: var(--s-ink);
+  overflow: hidden;
+}
+.site-shell[data-theme="light"] .stack {
+  --s-ink: #25212f;
+  --s-muted: #5f5870;
+  --s-soft: #857e94;
+  --s-line: #2a26381a;
+  --s-ring: #2a26381c;
+  --s-ring-hot: #b0588a59;
+  --s-pill: #ffffffd9;
+  --s-pill-edge: #6d5d8a2e;
+  --s-dot: #bf4b83;
+  --s-accent: linear-gradient(110deg, #69afc5 0%, #9276b7 52%, #c94f89 100%);
+  --s-core: radial-gradient(circle at 35% 30%, #ffffff, #efeaf6 70%);
+}
+
+.stack-body {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+/* ─── Tabs ─── */
+.stack-list { display: flex; flex-direction: column; }
+.stack-tab {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: baseline;
+  gap: 12px;
+  padding: 22px 4px;
+  border: 0;
+  border-top: 1px solid var(--s-line);
+  background: none;
+  color: var(--s-soft);
+  text-align: left;
+  cursor: pointer;
+  transition: color .35s;
+}
+.stack-tab:last-of-type { border-bottom: 1px solid var(--s-line); }
+.stack-tab-index { font: 500 11px 'DM Mono', monospace; letter-spacing: .14em; }
+.stack-tab-name {
+  font-size: clamp(22px, 2.3vw, 34px);
+  font-weight: 600;
+  letter-spacing: -.035em;
+  line-height: 1.1;
+  transition: transform .45s var(--s-ease);
+}
+.stack-tab-count { font: 500 13px 'DM Mono', monospace; letter-spacing: .06em; }
+.stack-tab:hover { color: var(--s-muted); }
+.stack-tab.is-active { color: var(--s-ink); }
+.stack-tab.is-active .stack-tab-index,
+.stack-tab.is-active .stack-tab-count { color: var(--s-dot); }
+.stack-tab.is-active .stack-tab-name { transform: translateX(8px); }
+.stack-tab-bar {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 0;
+  background: var(--s-accent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--s-dot) 50%, transparent);
+}
+/* While auto-cycling the bar fills like a timer; when the visitor is hovering it is simply full. */
+.stack-tab.is-active .stack-tab-bar { animation: stack-timer 3.8s linear forwards; }
+.stack-list:hover .stack-tab.is-active .stack-tab-bar,
+.stack-list:focus-within .stack-tab.is-active .stack-tab-bar { animation: none; width: 100%; }
+@keyframes stack-timer { to { width: 100%; } }
+.stack-tab:focus-visible { outline: 2px solid var(--s-dot); outline-offset: 2px; border-radius: 6px; }
+.stack-hint { margin: 18px 0 0; font: 500 10px 'DM Mono', monospace; letter-spacing: .12em; color: var(--s-soft); text-transform: uppercase; }
+
+/* ─── Galaxy ─── */
+.stack-galaxy {
+  position: relative;
+  justify-self: center;
+  width: min(620px, 100%);
+  aspect-ratio: 1;
+}
+.stack-galaxy::before {
+  content: '';
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--s-dot) 16%, transparent), transparent 70%);
+  filter: blur(20px);
+}
+
+.stack-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--r);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border: 1px dashed var(--s-ring);
+  border-radius: 50%;
+  animation: stack-spin var(--dur) linear infinite;
+  animation-direction: var(--dir);
+  transition: border-color .5s;
+}
+.stack-ring.is-active { border-style: solid; border-color: var(--s-ring-hot); box-shadow: 0 0 40px color-mix(in srgb, var(--s-dot) 10%, transparent), inset 0 0 40px color-mix(in srgb, var(--s-dot) 8%, transparent); }
+@keyframes stack-spin { to { transform: rotate(360deg); } }
+
+.stack-planet { position: absolute; inset: 0; transform: rotate(var(--a)); pointer-events: none; }
+.stack-pill {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  translate: -50% -50%;
+  transform: rotate(calc(var(--a) * -1));
+  animation: stack-counter var(--dur) linear infinite;
+  animation-direction: var(--dir);
+  padding: 6px 11px;
+  border: 1px solid var(--s-pill-edge);
+  border-radius: 999px;
+  background: var(--s-pill);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font: 500 11px 'DM Mono', monospace;
+  letter-spacing: .02em;
+  color: var(--s-muted);
+  white-space: nowrap;
+  opacity: .38;
+  pointer-events: auto;
+  transition: opacity .5s, background .5s, color .5s, box-shadow .5s, scale .5s var(--s-ease);
+}
+@keyframes stack-counter { to { rotate: -360deg; } }
+.stack-ring.is-active .stack-pill {
+  opacity: 1;
+  scale: 1.08;
+  border-color: transparent;
+  background: var(--s-accent);
+  color: #16122a;
+  font-weight: 600;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--s-dot) 35%, transparent);
+}
+.stack-galaxy:hover .stack-ring,
+.stack-galaxy:hover .stack-pill { animation-play-state: paused; }
+.stack-pill:hover { opacity: 1; color: var(--s-ink); }
+
+.stack-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 19%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--s-core);
+  box-shadow: 0 0 0 1px var(--s-pill-edge), 0 0 50px color-mix(in srgb, var(--s-dot) 28%, transparent), inset 0 1px #ffffff26;
+  text-align: center;
+}
+.stack-core::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--s-dot) 30%, transparent);
+  animation: stack-pulse 3.2s var(--s-ease) infinite;
+}
+@keyframes stack-pulse { 0% { scale: .9; opacity: 1; } 100% { scale: 1.35; opacity: 0; } }
+.stack-core-text { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 0 10px; }
+.stack-core-text b {
+  font-size: clamp(26px, 2.6vw, 38px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.05em;
+  background: var(--s-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.stack-core-text span { font-size: 11px; font-weight: 600; line-height: 1.25; max-width: 11ch; }
+.stack-core-text small { font: 500 9px 'DM Mono', monospace; letter-spacing: .16em; color: var(--s-soft); text-transform: uppercase; }
+
+/* ─── Mobile: the galaxy gives way to the active category's chips ─── */
+.stack-mobile { display: none; }
+@media (max-width: 900px) {
+  .stack { padding-top: 80px; padding-bottom: 80px; }
+  .stack-body { grid-template-columns: 1fr; }
+  .stack-galaxy { display: none; }
+  .stack-hint { display: none; }
+  .stack-mobile { display: block; min-height: 120px; }
+  .stack-mobile-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stack-mobile-chips span {
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: var(--s-accent);
+    color: #16122a;
+    font: 600 12px 'DM Mono', monospace;
+  }
+  .stack-tab { grid-template-columns: 32px 1fr auto; padding: 16px 2px; }
+  .stack-tab-name { font-size: 21px; }
+  .stack-tab.is-active .stack-tab-name { transform: none; }
+  .stack-mobile { margin-top: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-ring, .stack-pill, .stack-core::after, .stack-tab.is-active .stack-tab-bar { animation: none; }
+  .stack-tab.is-active .stack-tab-bar { width: 100%; }
+}

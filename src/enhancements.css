@@ -1,0 +1,606 @@
+/* ═══════════════════════════════════════════════════════════════
+   PORTFOLIO UI ENHANCEMENTS
+   Scroll progress, cursor glow, animated text, micro-interactions,
+   skill bars, card hover 3D, magnetic buttons, noise texture.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Cursor glow that follows the mouse ─── */
+.cursor-glow {
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f078b508 0%, #9edcf306 28%, transparent 60%);
+  transform: translate(-50%, -50%);
+  transition: opacity .35s;
+  opacity: 0;
+  mix-blend-mode: screen;
+  will-change: left, top;
+}
+.cursor-glow.visible {
+  opacity: 1;
+}
+.site-shell[data-theme="light"] .cursor-glow {
+  background: radial-gradient(circle, #bf4b830a 0%, #579dbb08 28%, transparent 60%);
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor-glow { display: none !important; }
+}
+@media (max-width: 650px) {
+  .cursor-glow { display: none !important; }
+}
+
+/* ─── Noise texture overlay for depth ─── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: .028;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ─── Hero animated text gradient shimmer ─── */
+@keyframes gradient-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.site-shell .hero h1 em {
+  background-size: 200% auto !important;
+  animation: gradient-shimmer 6s ease-in-out infinite;
+}
+
+/* ─── Typing cursor for hero intro ─── */
+.hero-intro .typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #f078b5;
+  margin-left: 3px;
+  animation: cursor-blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+@keyframes cursor-blink {
+  50% { opacity: 0; }
+}
+
+/* ─── Floating particles in hero ─── */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: float-up linear infinite;
+}
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) scale(1);
+  }
+}
+
+/* ─── Magnetic button hover effect ─── */
+.site-shell .button,
+.site-shell .project-open,
+.site-shell .text-link {
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1), background .3s, box-shadow .3s, color .3s, gap .3s, border-color .3s;
+}
+.site-shell .button:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+}
+.site-shell .button:active {
+  transform: translateY(-1px) scale(.99) !important;
+  transition-duration: .1s;
+}
+
+/* ─── Enhanced portrait frame animated gradient border ─── */
+@keyframes border-glow {
+  0%, 100% { border-color: #9edcf355; box-shadow: 0 28px 84px #02040c82, 0 0 40px #9edcf31a, inset 0 1px #ffffff0c; }
+  33% { border-color: #c391e655; box-shadow: 0 28px 84px #02040c82, 0 0 40px #c391e61a, inset 0 1px #ffffff0c; }
+  66% { border-color: #f078b555; box-shadow: 0 28px 84px #02040c82, 0 0 40px #f078b51a, inset 0 1px #ffffff0c; }
+}
+.site-shell .portrait-frame {
+  animation: border-glow 8s ease-in-out infinite;
+}
+
+/* ─── Orbits subtle rotation ─── */
+@keyframes orbit-spin-a {
+  from { transform: rotate(29deg) scaleY(.7); }
+  to { transform: rotate(389deg) scaleY(.7); }
+}
+@keyframes orbit-spin-b {
+  from { transform: rotate(-29deg) scaleY(.64); }
+  to { transform: rotate(-389deg) scaleY(.64); }
+}
+.site-shell .orbit-a {
+  animation: orbit-spin-a 90s linear infinite;
+}
+.site-shell .orbit-b {
+  animation: orbit-spin-b 120s linear infinite reverse;
+}
+
+/* ─── Enhanced experience card hover with lift ─── */
+.site-shell .exp-body {
+  transition: border-color .3s, transform .4s cubic-bezier(.2, .7, .2, 1), background .3s, box-shadow .4s !important;
+}
+.site-shell .experience-row:hover .exp-body {
+  transform: translateX(5px) translateY(-3px) !important;
+  box-shadow: 0 24px 60px #03061145, inset 0 1px #ffffff14 !important;
+}
+
+/* ─── Metrics with animated count-up ─── */
+.metric-value {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: transform .3s;
+}
+.metrics span:hover .metric-value {
+  transform: scale(1.08);
+}
+.metrics span {
+  transition: transform .25s cubic-bezier(.4, 0, .2, 1), box-shadow .25s;
+}
+.metrics span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px #f078b522;
+}
+
+/* ─── Skill group hover card ─── */
+.site-shell .skill-group {
+  position: relative;
+  transition: background .35s, transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+.site-shell .skill-group:hover {
+  background: linear-gradient(145deg, #f078b50a, #9edcf30a);
+  transform: translateY(-3px);
+}
+.site-shell[data-theme="light"] .skill-group:hover {
+  background: linear-gradient(145deg, #bf4b830a, #579dbb0a);
+}
+
+/* Skill chip stagger reveal */
+.site-shell .skill-group .chips span {
+  transition: transform .25s cubic-bezier(.4, 0, .2, 1), border-color .25s, background .25s, box-shadow .25s;
+}
+.site-shell .skill-group:hover .chips span {
+  border-color: #f078b544;
+  background: linear-gradient(135deg, #f078b51a, #9edcf312);
+  box-shadow: 0 2px 10px #f078b511;
+}
+.site-shell[data-theme="light"] .skill-group:hover .chips span {
+  border-color: #bf4b8333;
+  background: linear-gradient(135deg, #bf4b830f, #579dbb0c);
+}
+
+/* ─── Beyond card 3D tilt on hover ─── */
+.site-shell .beyond-card {
+  transition: transform .5s cubic-bezier(.2, .7, .2, 1), box-shadow .5s;
+}
+.site-shell .beyond-card:hover {
+  transform: perspective(1200px) rotateX(1.5deg) rotateY(-1deg) translateY(-4px);
+  box-shadow: 0 32px 80px #05081155, inset 0 1px #ffffff1c;
+}
+
+/* ─── Activity row hover ─── */
+.site-shell .activity {
+  transition: background .25s, transform .25s;
+}
+.site-shell .activity:hover {
+  background: #f078b508;
+  transform: translateX(4px);
+}
+
+/* ─── Contact section animated decorative circle ─── */
+@keyframes contact-circle-pulse {
+  0%, 100% { transform: scale(1); opacity: .6; }
+  50% { transform: scale(1.08); opacity: .9; }
+}
+.site-shell .contact:before {
+  animation: contact-circle-pulse 8s ease-in-out infinite !important;
+}
+
+/* ─── Contact links hover pill ─── */
+.site-shell .contact-links a {
+  transition: border-color .25s, color .25s, background .25s, transform .25s;
+}
+.site-shell .contact-links a:hover {
+  transform: translateY(-2px);
+  background: #ffffff12 !important;
+}
+
+/* ─── Availability badge pulse ─── */
+@keyframes availability-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px #f078b52c, 0 0 16px #f078b577; }
+  50% { box-shadow: 0 0 0 7px #f078b51a, 0 0 24px #f078b599; }
+}
+.site-shell .availability i,
+.site-shell .live-dot {
+  animation: availability-pulse 2.5s ease-in-out infinite;
+}
+
+/* ─── Section heading enhanced line reveal ─── */
+.site-shell .section-heading h2 {
+  position: relative;
+}
+
+/* ─── Project card hover shimmer line at top ─── */
+.site-shell .projects .project-card:after {
+  transition: opacity .4s;
+}
+.site-shell .projects .project-card:hover:after {
+  opacity: 1 !important;
+}
+.site-shell .projects .project-card:not(:hover):after {
+  opacity: .5;
+}
+
+/* ─── Device mockup subtle float ─── */
+@keyframes device-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.005); }
+}
+.site-shell .project-card.is-active .project-device {
+  animation: device-float 5s ease-in-out infinite;
+}
+
+/* ─── Footer enhanced ─── */
+.site-shell .footer {
+  position: relative;
+}
+.site-shell .footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f078b544 30%, #9edcf344 70%, transparent);
+}
+
+/* ─── Smooth image reveal on project card ─── */
+.site-shell .desktop-screen img,
+.site-shell .phone-screen img {
+  transition: transform .6s cubic-bezier(.2, .7, .2, 1), filter .6s;
+}
+.site-shell .project-card.is-active .desktop-screen img,
+.site-shell .project-card.is-active .phone-screen img {
+  transform: scale(1.02);
+}
+
+/* ─── Enhanced chips transition ─── */
+.site-shell .chips span {
+  transition: transform .2s, border-color .2s, background .2s, box-shadow .2s;
+}
+.site-shell .chips span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px #00000022;
+}
+
+/* ─── Dialog enhanced backdrop ─── */
+.project-dialog-backdrop {
+  background: #030806e6 !important;
+}
+
+/* ─── Smooth section separator lines ─── */
+.section-separator {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background: linear-gradient(90deg, transparent 5%, #f078b533 25%, #9edcf333 50%, #c391e633 75%, transparent 95%);
+  margin: 0;
+  opacity: .6;
+}
+
+/* ─── Education icon bounce on hover ─── */
+.site-shell .edu-icon {
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1), box-shadow .3s;
+}
+.site-shell .education:hover .edu-icon {
+  transform: scale(1.12) rotate(-8deg);
+  box-shadow: 0 4px 18px #f078b522;
+}
+
+/* ─── Brand logo subtle glow ─── */
+.site-shell .brand-mark {
+  transition: box-shadow .3s;
+}
+.site-shell .brand:hover .brand-mark {
+  box-shadow: 0 0 20px #f078b533, 0 0 40px #9edcf322;
+}
+
+/* ─── Hero scroll hint bounce ─── */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+.site-shell .hero-index span:last-child svg {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* ─── Project dialog enhanced transitions ─── */
+.project-dialog {
+  overflow: hidden;
+}
+.project-dialog .dialog-gallery img {
+  transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+}
+.project-dialog .dialog-gallery:hover img {
+  transform: scale(1.03);
+}
+
+/* ─── Reduced motion override ─── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-particle,
+  .cursor-glow,
+  .site-shell .portrait-frame,
+  .site-shell .orbit-a,
+  .site-shell .orbit-b,
+  .site-shell .availability i,
+  .site-shell .live-dot,
+  .site-shell .hero h1 em,
+  .site-shell .contact:before,
+  .site-shell .project-card.is-active .project-device,
+  .site-shell .hero-index span:last-child svg {
+    animation: none !important;
+  }
+  .site-shell .button:hover,
+  .site-shell .beyond-card:hover,
+  .site-shell .skill-group:hover,
+  .site-shell .activity:hover,
+  .site-shell .experience-row:hover .exp-body,
+  .site-shell .contact-links a:hover,
+  .site-shell .chips span:hover {
+    transform: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM POLISH — WAVE 2
+   ═══════════════════════════════════════════════════════════════ */
+
+
+/* ─── Contact section animated gradient BG ─── */
+@keyframes contact-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.site-shell .contact {
+  background-size: 200% 200% !important;
+  animation: contact-gradient-shift 20s ease infinite;
+}
+
+/* ─── Enhanced section heading with decorative line ─── */
+.site-shell .section-heading h2::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, #9edcf3, #f078b5);
+  border-radius: 2px;
+  opacity: .7;
+}
+.site-shell[data-theme="light"] .section-heading h2::before {
+  background: linear-gradient(90deg, #579dbb, #bf4b83);
+}
+
+
+/* ─── Enhanced metric badges glow effect ─── */
+.site-shell .metrics span {
+  position: relative;
+  overflow: hidden;
+}
+.site-shell .metrics span::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #9edcf30e, #f078b50e);
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.site-shell .metrics span:hover::after {
+  opacity: 1;
+}
+
+/* ─── Availability badge shimmer ─── */
+@keyframes availability-shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+.site-shell .availability {
+  position: relative;
+  overflow: hidden;
+}
+.site-shell .availability::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #ffffff0c, transparent);
+  animation: availability-shimmer 5s ease-in-out infinite 2s;
+  pointer-events: none;
+}
+
+/* ─── Enhanced project filter buttons ─── */
+.site-shell .project-filters button {
+  transition: color .25s, background .25s, border-color .25s, box-shadow .25s, transform .25s;
+}
+.site-shell .project-filters button:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px #ffffff22, 0 8px 24px #04071833;
+}
+.site-shell .project-filters button:active {
+  transform: translateY(0) scale(.97);
+  transition-duration: .1s;
+}
+.site-shell .project-filters button.active {
+  transform: translateY(0);
+}
+
+/* ─── Contact links hover ripple effect ─── */
+.site-shell .contact-links a {
+  position: relative;
+  overflow: hidden;
+}
+.site-shell .contact-links a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: #ffffff09;
+  transform: translate(-50%, -50%);
+  transition: width .4s, height .4s;
+  pointer-events: none;
+}
+.site-shell .contact-links a:hover::before {
+  width: 200%;
+  height: 200%;
+}
+
+/* ─── Intro band parallax-like depth element ─── */
+.site-shell .intro-band {
+  position: relative;
+}
+.site-shell .intro-band::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, #0b1020, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Beyond card floating accent circles ─── */
+.site-shell .beyond-card {
+  position: relative;
+  overflow: hidden;
+}
+.site-shell .beyond-card::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: -50px;
+  right: -50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #9edcf30d, transparent 65%);
+  pointer-events: none;
+  animation: contact-circle-pulse 10s ease-in-out infinite;
+}
+.site-shell .beyond-card::after {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  bottom: -40px;
+  left: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f078b50c, transparent 65%);
+  pointer-events: none;
+  animation: contact-circle-pulse 12s ease-in-out infinite 3s;
+}
+
+/* ─── Gallery controls enhanced hover ─── */
+.site-shell .gallery-control,
+.site-shell .dialog-gallery-control {
+  transition: color .25s, background .25s, border-color .25s, transform .25s, box-shadow .25s;
+}
+.site-shell .gallery-control:hover,
+.site-shell .dialog-gallery-control:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 20px #9edcf333;
+}
+
+/* ─── Gallery dots enhanced pulse ─── */
+.site-shell .gallery-dots button.active {
+  position: relative;
+}
+@keyframes dot-ping {
+  0% { transform: scale(1); opacity: .7; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* ─── Hero visual subtle parallax depth ─── */
+.site-shell .hero-visual {
+  transition: transform .2s ease-out;
+}
+
+/* ─── Footer hover effects ─── */
+.site-shell .footer .brand {
+  transition: opacity .3s;
+}
+.site-shell .footer .brand:hover {
+  opacity: .8;
+}
+.site-shell .footer .admin-link {
+  transition: color .25s, transform .25s;
+}
+.site-shell .footer .admin-link:hover {
+  transform: translateX(3px);
+}
+
+/* ─── Smooth entry animation for entire page ─── */
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.site-shell {
+  animation: page-fade-in .8s ease-out;
+}
+
+/* ─── Enhanced text selection ─── */
+.site-shell ::selection {
+  background: #9edcf333;
+  color: #f0eff9;
+}
+.site-shell[data-theme="light"] ::selection {
+  background: #579dbb33;
+  color: #302c40;
+}
+
+/* ─── Refined scrollbar ─── */
+.site-shell ::-webkit-scrollbar {
+  width: 8px;
+}
+.site-shell ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.site-shell ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9edcf344, #f078b544);
+  border-radius: 8px;
+}
+.site-shell ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #9edcf366, #f078b566);
+}

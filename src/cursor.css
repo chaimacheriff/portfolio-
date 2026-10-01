@@ -1,0 +1,111 @@
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM CURSOR — dot follows the pointer 1:1, ring trails behind.
+   States (data-state on both nodes): '' idle · link · view.
+   Only active when <html> has .has-custom-cursor (fine pointer,
+   no reduced-motion), so touch devices keep the native cursor.
+   ═══════════════════════════════════════════════════════════════ */
+
+html.has-custom-cursor,
+html.has-custom-cursor * { cursor: none !important; }
+
+.cursor-dot,
+.cursor-ring {
+  --cursor-ink: #f1f0fa;
+  --cursor-accent: #f078b5;
+  --cursor-accent-2: #9edcf3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10001;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+}
+.site-shell[data-theme="light"] .cursor-dot,
+.site-shell[data-theme="light"] .cursor-ring {
+  --cursor-ink: #2a2638;
+  --cursor-accent: #bf4b83;
+  --cursor-accent-2: #579dbb;
+}
+.cursor-dot.is-visible,
+.cursor-ring.is-visible { opacity: 1; }
+
+/* Dot: exact pointer position */
+.cursor-dot {
+  width: 0;
+  height: 0;
+  transition: opacity .25s;
+}
+.cursor-dot::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--cursor-accent);
+  box-shadow: 0 0 10px var(--cursor-accent);
+  transition: transform .3s cubic-bezier(.22, 1, .36, 1), background .3s;
+}
+.cursor-dot[data-state="link"]::before { transform: scale(.6); background: var(--cursor-ink); box-shadow: none; }
+.cursor-dot[data-state="view"]::before { transform: scale(0); }
+
+/* Ring: trails with easing, morphs per state.
+   ::before = gradient outline (masked to a 1.5px ring), ::after = fill. */
+.cursor-ring {
+  --size: 34px;
+  width: 0;
+  height: 0;
+  transition: opacity .3s;
+}
+.cursor-ring[data-state="link"] { --size: 54px; }
+.cursor-ring[data-state="view"] { --size: 92px; }
+.cursor-ring::before,
+.cursor-ring::after {
+  content: '';
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+  border-radius: 50%;
+  transition:
+    width .45s cubic-bezier(.22, 1, .36, 1),
+    height .45s cubic-bezier(.22, 1, .36, 1),
+    margin .45s cubic-bezier(.22, 1, .36, 1),
+    opacity .3s,
+    transform .2s cubic-bezier(.22, 1, .36, 1);
+}
+.cursor-ring::before {
+  padding: 1.5px;
+  background: linear-gradient(135deg, var(--cursor-accent-2), #c391e6, var(--cursor-accent));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .8;
+}
+.cursor-ring::after {
+  background: linear-gradient(135deg, var(--cursor-accent-2), #c391e6 55%, var(--cursor-accent));
+  opacity: 0;
+}
+.cursor-ring[data-state="link"]::before { opacity: 1; }
+.cursor-ring[data-state="link"]::after { opacity: .14; }
+.cursor-ring[data-state="view"]::before { opacity: 0; }
+.cursor-ring[data-state="view"]::after { opacity: 1; box-shadow: 0 12px 34px #f078b544; }
+.cursor-ring.is-pressed::before,
+.cursor-ring.is-pressed::after { transform: scale(.82); }
+
+.cursor-label {
+  position: absolute;
+  z-index: 1;
+  transform: translate(-50%, -50%) scale(.4);
+  font: 600 11px/1 'DM Mono', monospace;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #16122a;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .25s, transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+.cursor-ring[data-state="view"] .cursor-label { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+.site-shell .projects .project-media[data-cursor="view"] { cursor: pointer; }
