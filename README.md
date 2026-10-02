@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Le site est servi sur `http://localhost:5173` et l’espace de gestion sur [`http://localhost:5173/admin`](http://localhost:5173/admin). En développement, le mot de passe initial est `chaima2027`. Changez-le avant tout déploiement en définissant `ADMIN_PASSWORD` dans l’environnement du serveur.
+Le site est servi sur `http://localhost:5173` et l’espace de gestion sur [`http://localhost:5173/admin`](http://localhost:5173/admin). En développement. Changez-le avant tout déploiement en définissant `ADMIN_PASSWORD` dans l’environnement du serveur.
 
 ## Contenu et traductions
 
