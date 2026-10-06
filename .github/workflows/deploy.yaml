@@ -104,4 +104,4 @@ jobs:
             fi
             pm2 save
 
-            echo "✅ Déploiement [$ENV_NAME] terminée"
+            echo "✅ Déploiement [$ENV_NAME] terminée vv"
