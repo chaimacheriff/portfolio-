@@ -3,6 +3,11 @@
    the ways to reach me. Buttons reuse .landing-cta / .landing-ghost
    from the hero so the calls-to-action stay consistent.
    ═══════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   CONTACT (.reach) — big invitation + a terminal that types out
+   the ways to reach me. Buttons reuse .landing-cta / .landing-ghost
+   from the hero so the calls-to-action stay consistent.
+   ═══════════════════════════════════════════════════════════════ */
 
 .reach {
   --r-ink: #f1f0fa;
@@ -29,6 +34,7 @@
   padding-bottom: 130px;
   color: var(--r-ink);
 }
+
 .site-shell[data-theme="light"] .reach {
   --r-ink: #25212f;
   --r-muted: #5f5870;
@@ -68,6 +74,7 @@
   line-height: .95;
   letter-spacing: -.055em;
 }
+
 .reach-copy h2 em {
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: 400;
@@ -77,12 +84,45 @@
   background-clip: text;
   color: transparent;
 }
-.reach-copy > p:not(.reach-note) { max-width: 460px; margin: 28px 0 32px; font-size: 16px; line-height: 1.75; color: var(--r-muted); }
-.reach-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.reach-copy-btn { cursor: pointer; font-family: inherit; }
-.reach-note { min-height: 20px; margin: 14px 0 0; font-size: 13px; color: var(--r-soft); opacity: 0; transform: translateY(4px); transition: opacity .3s, transform .3s; }
-.reach-note.is-visible { opacity: 1; transform: none; }
-.reach-copy-btn.is-copied { border-color: color-mix(in srgb, var(--r-dot) 70%, transparent); color: var(--r-dot); }
+
+.reach-copy>p:not(.reach-note) {
+  max-width: 460px;
+  margin: 28px 0 32px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--r-muted);
+}
+
+.reach-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.reach-copy-btn {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.reach-note {
+  min-height: 20px;
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: var(--r-soft);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .3s, transform .3s;
+}
+
+.reach-note.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reach-copy-btn.is-copied {
+  border-color: color-mix(in srgb, var(--r-dot) 70%, transparent);
+  color: var(--r-dot);
+}
 
 /* ─── Terminal (always dark, like a real one) ─── */
 .reach-term {
@@ -96,6 +136,7 @@
   font: 400 14px/1.8 'DM Mono', monospace;
   color: #d8dbec;
 }
+
 .reach-term-bar {
   display: flex;
   align-items: center;
@@ -104,14 +145,45 @@
   border-bottom: 1px solid #ffffff12;
   background: var(--r-term-bar);
 }
-.reach-term-bar i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
-.reach-term-bar i:nth-child(2) { background: #febc2e; }
-.reach-term-bar i:nth-child(3) { background: #28c840; }
-.reach-term-bar span { margin-left: auto; margin-right: auto; padding-right: 40px; font-size: 11px; letter-spacing: .06em; color: #8d93ad; }
 
-.reach-term-body { min-height: 300px; padding: 20px 22px 24px; }
-.reach-line b { color: var(--r-dot); font-weight: 500; }
-.reach-line span { color: #f1f0fa; }
+.reach-term-bar i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.reach-term-bar i:nth-child(2) {
+  background: #febc2e;
+}
+
+.reach-term-bar i:nth-child(3) {
+  background: #28c840;
+}
+
+.reach-term-bar span {
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 40px;
+  font-size: 11px;
+  letter-spacing: .06em;
+  color: #8d93ad;
+}
+
+.reach-term-body {
+  min-height: 300px;
+  padding: 20px 22px 24px;
+}
+
+.reach-line b {
+  color: var(--r-dot);
+  font-weight: 500;
+}
+
+.reach-line span {
+  color: #f1f0fa;
+}
+
 .reach-line span.is-typing {
   display: inline-block;
   overflow: hidden;
@@ -120,10 +192,27 @@
   width: 0;
   animation: reach-type calc(var(--n) * 55ms) steps(var(--n)) forwards;
 }
-@keyframes reach-type { to { width: calc(var(--n) * 1ch); } }
-.reach-out { margin: 2px 0 12px; padding-left: 18px; color: #a9adc3; }
-.reach-key { color: #9edcf3; }
-.reach-val { color: #d8dbec; }
+
+@keyframes reach-type {
+  to {
+    width: calc(var(--n) * 1ch);
+  }
+}
+
+.reach-out {
+  margin: 2px 0 12px;
+  padding-left: 18px;
+  color: #a9adc3;
+}
+
+.reach-key {
+  color: #9edcf3;
+}
+
+.reach-val {
+  color: #d8dbec;
+}
+
 .reach-out a {
   display: inline-flex;
   align-items: center;
@@ -133,8 +222,16 @@
   background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
   transition: background-size .35s var(--l-ease), color .25s;
 }
-.reach-out a:hover { color: #ff9cc8; background-size: 100% 1px; }
-.reach-out a svg { opacity: .6; }
+
+.reach-out a:hover {
+  color: #ff9cc8;
+  background-size: 100% 1px;
+}
+
+.reach-out a svg {
+  opacity: .6;
+}
+
 .reach-caret {
   display: inline-block;
   width: .6em;
@@ -143,20 +240,54 @@
   background: var(--r-dot);
   animation: reach-blink 1s steps(1) infinite;
 }
-@keyframes reach-blink { 50% { opacity: 0; } }
+
+@keyframes reach-blink {
+  50% {
+    opacity: 0;
+  }
+}
 
 /* ─── Responsive ─── */
 @media (max-width: 1000px) {
-  .reach-grid { grid-template-columns: 1fr; margin-top: 48px; }
+  .reach-grid {
+    grid-template-columns: 1fr;
+    margin-top: 48px;
+  }
 }
+
 @media (max-width: 640px) {
-  .reach { padding-top: 80px; padding-bottom: 90px; }
-  .reach-kicker { flex-direction: column; gap: 6px; }
-  .reach-term { font-size: 12.5px; border-radius: 16px; }
-  .reach-term-body { min-height: 260px; padding: 16px 16px 20px; }
-  .reach-out { padding-left: 12px; }
+  .reach {
+    padding-top: 80px;
+    padding-bottom: 90px;
+  }
+
+  .reach-kicker {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .reach-term {
+    font-size: 12.5px;
+    border-radius: 16px;
+  }
+
+  .reach-term-body {
+    min-height: 260px;
+    padding: 16px 16px 20px;
+  }
+
+  .reach-out {
+    padding-left: 12px;
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .reach-line span.is-typing { animation: none; width: auto; }
-  .reach-caret { animation: none; }
+  .reach-line span.is-typing {
+    animation: none;
+    width: auto;
+  }
+
+  .reach-caret {
+    animation: none;
+  }
 }
